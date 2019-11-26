@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoaquin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 19:38:44 by cjoaquin          #+#    #+#             */
-/*   Updated: 2019/11/11 21:14:40 by cjoaquin         ###   ########.fr       */
+/*   Created: 2019/09/15 05:09:39 by cjoaquin          #+#    #+#             */
+/*   Updated: 2019/09/15 05:15:50 by cjoaquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "fillit.h"
 
-int main(int argc, char **argv)
+int		ft_tolower(int c)
 {
-    if (!(ft_openreadvalidcoord(argc, argv[1])))
-        return(-1);
-    //else
-        // osnovnoy algoritm
-    return(0);
+	if (c >= 'A' && c <= 'Z')
+		return (c - 'A' + 'a');
+	else
+		return (c);
 }

@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoaquin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 19:38:44 by cjoaquin          #+#    #+#             */
-/*   Updated: 2019/11/11 21:14:40 by cjoaquin         ###   ########.fr       */
+/*   Created: 2019/09/17 01:59:30 by cjoaquin          #+#    #+#             */
+/*   Updated: 2019/09/17 02:56:13 by cjoaquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "fillit.h"
 
-int main(int argc, char **argv)
+#include "libft.h"
+
+void	ft_putnbr(int n)
 {
-    if (!(ft_openreadvalidcoord(argc, argv[1])))
-        return(-1);
-    //else
-        // osnovnoy algoritm
-    return(0);
+	int i;
+
+	i = -1000000000;
+	if (n == 0)
+	{
+		write(1, "0", 1);
+		return ;
+	}
+	if (n >= 0)
+		n *= -1;
+	else
+		write(1, "-", 1);
+	while (n / i == 0)
+		i /= 10;
+	while (i)
+	{
+		ft_putchar(n / i + '0');
+		n = n % i;
+		i /= 10;
+	}
 }

@@ -9,8 +9,8 @@ int ft_numberbonds(char *buf) //kolvo svyazey
 
     i = 0;
     n = 0;
-    tmp = &buf;
-    while (a = ft_strchr(tmp, '#') != NULL)))
+    tmp = buf;
+    while ((a = ft_strchr(tmp, '#')))
     {
         i = 21 - ft_strlen(a); //nomer elementa #
         tmp = &buf[i+1];
@@ -45,7 +45,7 @@ int ft_numbersigns(char *buf)  //kolvo # , ft vozvrashaet 0 pri pravilnom rezult
     }
     if (k != 4)
         return (-1);
-    if (a = ft_numberbonds(buf) != 0)
+    if ((a = ft_numberbonds(buf))!= 0)
             return(-1);
     return(0);
 }
@@ -63,7 +63,7 @@ int  ft_valid(char   *buf)
            return(-1);
        i++;
    }
-   if(rezalt = ft_numbersigns(buf) != 0)
+   if((rezalt = ft_numbersigns(buf)) != 0)
        return(-1);
    return(0);
 }
@@ -81,7 +81,7 @@ t_main  *readnvalid(int fd, t_main *s_main)
     n = 0;
     if (!s_main)
         return(NULL);
-    while (b = read(fd, buf, 21) > 0 && (buf[b] = 0) && (n < 28))
+    while ((b = read(fd, buf, 21)) > 0 && (buf[b] = 0) && (n < 28))
     {
         if((b != 21 && (p = ft_valid(buf) != 0) && buf[20] != '\n')
                 || (b != 20 && (p = ft_valid(buf) != 0)))
@@ -92,7 +92,7 @@ t_main  *readnvalid(int fd, t_main *s_main)
     }
     if (n > 26)
         return (NULL);
-    s_main->s_list->next = NULL;
+    s_main->s_lisst->next = NULL;
     return(s_main);
 }
 
@@ -112,7 +112,7 @@ t_main  *ft_openreadvalidcoord(int argc, char *c)
     if(fd == -1 || !maain || (!(inputvalidcoord = readnvalid(fd, maain))))
     {
         write(1, "error", 5);
-        ft_freeall(maain);
+        //ft_freeall(maain);
         return(NULL);
     }
     return(inputvalidcoord);

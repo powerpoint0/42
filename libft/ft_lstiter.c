@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoaquin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 19:38:44 by cjoaquin          #+#    #+#             */
-/*   Updated: 2019/11/11 21:14:40 by cjoaquin         ###   ########.fr       */
+/*   Created: 2019/09/21 23:10:56 by cjoaquin          #+#    #+#             */
+/*   Updated: 2019/09/22 01:34:13 by cjoaquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "fillit.h"
 
-int main(int argc, char **argv)
+#include "libft.h"
+#include <stdlib.h>
+
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-    if (!(ft_openreadvalidcoord(argc, argv[1])))
-        return(-1);
-    //else
-        // osnovnoy algoritm
-    return(0);
+	if (!lst || !f)
+		return ;
+	(*f)(lst);
+	while (lst->next)
+	{
+		lst = lst->next;
+		(*f)(lst);
+	}
 }

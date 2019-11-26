@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoaquin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 19:38:44 by cjoaquin          #+#    #+#             */
-/*   Updated: 2019/11/11 21:14:40 by cjoaquin         ###   ########.fr       */
+/*   Created: 2019/09/15 03:53:23 by cjoaquin          #+#    #+#             */
+/*   Updated: 2019/09/15 03:58:13 by cjoaquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "fillit.h"
 
-int main(int argc, char **argv)
+int		ft_isprint(int c)
 {
-    if (!(ft_openreadvalidcoord(argc, argv[1])))
-        return(-1);
-    //else
-        // osnovnoy algoritm
-    return(0);
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }

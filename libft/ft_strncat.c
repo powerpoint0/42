@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoaquin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 19:38:44 by cjoaquin          #+#    #+#             */
-/*   Updated: 2019/11/11 21:14:40 by cjoaquin         ###   ########.fr       */
+/*   Created: 2019/09/16 01:34:02 by cjoaquin          #+#    #+#             */
+/*   Updated: 2019/09/19 05:36:14 by cjoaquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "fillit.h"
 
-int main(int argc, char **argv)
+#include "libft.h"
+
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-    if (!(ft_openreadvalidcoord(argc, argv[1])))
-        return(-1);
-    //else
-        // osnovnoy algoritm
-    return(0);
+	size_t i;
+	size_t h;
+
+	i = 0;
+	h = 0;
+	if (n == 0)
+		return (s1);
+	if (*s2 == '\0')
+		return (s1);
+	while (s1[i])
+		i++;
+	while (h < n && s2[h])
+	{
+		s1[i] = s2[h];
+		h++;
+		i++;
+	}
+	s1[i] = '\0';
+	return (s1);
 }

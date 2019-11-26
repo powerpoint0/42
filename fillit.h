@@ -8,20 +8,24 @@
 #include <sys/stat.h>
 #include "libft/libft.h"
 
-typedef struct      s_list
+typedef struct      s_lisst
 {
     int             blockcoords[8];
     char            letter;
     int             x_offset;
     int             y_offset;
-    struct s_list   *next;
-}                   t_list;
+    struct s_lisst   *next;
+}                   t_lisst;
 
 typedef struct      s_main
 {
-    t_list  *begining_list;
-    t_list  *s_list;
+    t_lisst  *begining_list;
+    t_lisst  *s_lisst;
     char    letter;
 }                   t_main;
+
+t_main  *ft_openreadvalidcoord(int argc, char *c);
+t_main  *ft_slash(char *buf,t_main  *s_main);
+t_main  *ft_coordsmain();
 
 #endif

@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoaquin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 19:38:44 by cjoaquin          #+#    #+#             */
-/*   Updated: 2019/11/11 21:14:40 by cjoaquin         ###   ########.fr       */
+/*   Created: 2019/09/21 21:01:32 by cjoaquin          #+#    #+#             */
+/*   Updated: 2019/09/21 22:17:21 by cjoaquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "fillit.h"
 
-int main(int argc, char **argv)
+#include "libft.h"
+#include <stdlib.h>
+
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-    if (!(ft_openreadvalidcoord(argc, argv[1])))
-        return(-1);
-    //else
-        // osnovnoy algoritm
-    return(0);
+	t_list *temp;
+	t_list *tempn;
+
+	temp = *alst;
+	while (temp != NULL)
+	{
+		tempn = temp->next;
+		del(temp->content, temp->content_size);
+		free(temp);
+		temp = tempn;
+	}
+	*alst = NULL;
 }

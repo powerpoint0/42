@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoaquin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 19:38:44 by cjoaquin          #+#    #+#             */
-/*   Updated: 2019/11/11 21:14:40 by cjoaquin         ###   ########.fr       */
+/*   Created: 2019/09/06 15:24:59 by cjoaquin          #+#    #+#             */
+/*   Updated: 2019/09/22 01:52:27 by cjoaquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "fillit.h"
 
-int main(int argc, char **argv)
+#include "libft.h"
+
+void	ft_sort_params(int argc, char **argv)
 {
-    if (!(ft_openreadvalidcoord(argc, argv[1])))
-        return(-1);
-    //else
-        // osnovnoy algoritm
-    return(0);
+	int i;
+
+	i = 1;
+	while (i < argc - 1)
+	{
+		if (ft_strcmp(argv[i], argv[i + 1]) > 0)
+		{
+			argv[argc + 1] = argv[i];
+			argv[i] = argv[i + 1];
+			argv[i + 1] = argv[argc + 1];
+			i = 1;
+		}
+		else
+			i++;
+	}
+	i = 1;
+	ft_print_params(argc, argv);
 }

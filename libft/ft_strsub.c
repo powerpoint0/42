@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoaquin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 19:38:44 by cjoaquin          #+#    #+#             */
-/*   Updated: 2019/11/11 21:14:40 by cjoaquin         ###   ########.fr       */
+/*   Created: 2019/09/18 03:20:43 by cjoaquin          #+#    #+#             */
+/*   Updated: 2019/09/20 21:39:11 by cjoaquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "fillit.h"
 
-int main(int argc, char **argv)
+#include "libft.h"
+
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-    if (!(ft_openreadvalidcoord(argc, argv[1])))
-        return(-1);
-    //else
-        // osnovnoy algoritm
-    return(0);
+	char	*ptr;
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (!(ptr = (char *)malloc(sizeof(*ptr) * (len + 1))))
+		return (NULL);
+	if (ft_strlen(s) >= start + len)
+	{
+		while (i < len)
+		{
+			ptr[i] = s[start];
+			i++;
+			start++;
+		}
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }
